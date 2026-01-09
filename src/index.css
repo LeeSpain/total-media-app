@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    
+    /* Agent colors */
+    --commander: 262 83% 58%;
+    --scout: 142 76% 36%;
+    --spy: 0 72% 51%;
+    --writer: 199 89% 48%;
+    --artist: 326 100% 74%;
+    --broadcaster: 25 95% 53%;
+    --ambassador: 280 87% 65%;
+    --oracle: 173 80% 40%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .agent-pulse {
+    animation: agent-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes agent-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .task-flow-line {
+    background: linear-gradient(90deg, 
+      hsl(var(--commander)) 0%, 
+      hsl(var(--scout)) 25%, 
+      hsl(var(--writer)) 50%, 
+      hsl(var(--broadcaster)) 75%, 
+      hsl(var(--oracle)) 100%
+    );
+  }
+
+  /* Custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-commander via-writer to-oracle bg-clip-text text-transparent;
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply bg-background/80 backdrop-blur-lg;
+  }
+}
+
+/* Agent background colors */
+.bg-commander { background-color: hsl(var(--commander)); }
+.bg-scout { background-color: hsl(var(--scout)); }
+.bg-spy { background-color: hsl(var(--spy)); }
+.bg-writer { background-color: hsl(var(--writer)); }
+.bg-artist { background-color: hsl(var(--artist)); }
+.bg-broadcaster { background-color: hsl(var(--broadcaster)); }
+.bg-ambassador { background-color: hsl(var(--ambassador)); }
+.bg-oracle { background-color: hsl(var(--oracle)); }
+
+/* Agent text colors */
+.text-commander { color: hsl(var(--commander)); }
+.text-scout { color: hsl(var(--scout)); }
+.text-spy { color: hsl(var(--spy)); }
+.text-writer { color: hsl(var(--writer)); }
+.text-artist { color: hsl(var(--artist)); }
+.text-broadcaster { color: hsl(var(--broadcaster)); }
+.text-ambassador { color: hsl(var(--ambassador)); }
+.text-oracle { color: hsl(var(--oracle)); }
+
+/* Gradient backgrounds */
+.from-commander { --tw-gradient-from: hsl(var(--commander)); }
+.to-commander { --tw-gradient-to: hsl(var(--commander)); }
+.via-commander { --tw-gradient-via: hsl(var(--commander)); }
+.from-oracle { --tw-gradient-from: hsl(var(--oracle)); }
+.to-oracle { --tw-gradient-to: hsl(var(--oracle)); }
+.via-oracle { --tw-gradient-via: hsl(var(--oracle)); }
+.from-writer { --tw-gradient-from: hsl(var(--writer)); }
+.to-writer { --tw-gradient-to: hsl(var(--writer)); }
+.via-writer { --tw-gradient-via: hsl(var(--writer)); }
